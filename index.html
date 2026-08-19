@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Hook Kit — 40 Opening Lines That Stop the Scroll</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --navy:    #0D1B40;
+  --navy2:   #08122D;
+  --navy3:   #142456;
+  --cream:   #F5F0E8;
+  --cream2:  #FDFAF4;
+  --gold:    #C9A84C;
+  --gold2:   #E8D5A3;
+  --muted:   #8A7F72;
+  --white:   #FFFFFF;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--navy);
+  color: var(--cream);
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ── TYPOGRAPHY ── */
+.display { font-family: 'Cormorant Garamond', serif; }
+.mono    { font-family: 'Space Mono', monospace; }
+
+/* ── LAYOUT ── */
+.container { max-width: 680px; margin: 0 auto; padding: 0 24px; }
+section { padding: 80px 0; }
+
+/* ── GOLD LINE ── */
+.gold-rule { width: 60px; height: 1px; background: var(--gold); margin: 0 auto; }
+.gold-rule.left { margin: 0; }
+
+/* ── EYEBROW ── */
+.eyebrow {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+
+/* ══════════════════════════════
+   HERO
+══════════════════════════════ */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 100px 24px 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "40";
+  position: absolute;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: clamp(200px, 40vw, 360px);
+  color: rgba(255,255,255,0.025);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  line-height: 1;
+}
+
+.hero-inner { position: relative; z-index: 1; max-width: 640px; }
+
+.hero-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 32px;
+  display: block;
+}
+
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(52px, 12vw, 96px);
+  font-weight: 600;
+  line-height: 0.95;
+  color: var(--cream);
+  margin-bottom: 8px;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.hero-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(18px, 4vw, 26px);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--gold2);
+  margin: 24px 0 40px;
+  line-height: 1.5;
+}
+
+.hero-desc {
+  font-size: 15px;
+  color: var(--muted);
+  max-width: 480px;
+  margin: 0 auto 48px;
+  line-height: 1.8;
+}
+
+.btn-primary {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--navy);
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 20px 48px;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.btn-primary:hover {
+  background: var(--gold2);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  display: inline-block;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 20px 48px;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background: rgba(201,168,76,0.1);
+}
+
+.hero-price {
+  margin-top: 20px;
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 1px;
+}
+
+/* ══════════════════════════════
+   PROBLEM
+══════════════════════════════ */
+.problem { background: var(--navy2); }
+
+.problem-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(22px, 5vw, 36px);
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--cream);
+  border-left: 2px solid var(--gold);
+  padding-left: 28px;
+  margin: 40px 0;
+}
+
+.problem-quote strong {
+  font-style: normal;
+  font-weight: 600;
+  color: var(--gold);
+}
+
+.problem p {
+  font-size: 16px;
+  color: var(--muted);
+  line-height: 1.9;
+  margin-bottom: 16px;
+}
+
+/* ══════════════════════════════
+   SOLUTION
+══════════════════════════════ */
+.solution { text-align: center; }
+
+.solution h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 8vw, 64px);
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--cream);
+  margin: 24px 0 20px;
+}
+
+.solution h2 em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.solution p {
+  font-size: 16px;
+  color: var(--muted);
+  max-width: 520px;
+  margin: 0 auto;
+  line-height: 1.9;
+}
+
+/* ══════════════════════════════
+   WHAT'S INSIDE
+══════════════════════════════ */
+.inside { background: var(--navy2); }
+
+.inside h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 7vw, 52px);
+  font-weight: 600;
+  color: var(--cream);
+  margin: 16px 0 40px;
+  line-height: 1.2;
+}
+
+.section-card {
+  border: 1px solid rgba(201,168,76,0.2);
+  padding: 36px;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.section-card::before {
+  content: attr(data-ghost);
+  position: absolute;
+  right: -10px;
+  top: -10px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 100px;
+  color: rgba(201,168,76,0.05);
+  line-height: 1;
+  pointer-events: none;
+}
+
+.section-card .card-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+.section-card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--cream);
+  margin-bottom: 8px;
+}
+
+.section-card p {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.hook-preview {
+  background: rgba(255,255,255,0.03);
+  border-left: 2px solid var(--gold);
+  padding: 12px 16px;
+  margin-bottom: 8px;
+  font-size: 13px;
+  color: var(--cream2);
+  font-style: italic;
+  font-family: 'Cormorant Garamond', serif;
+  line-height: 1.6;
+}
+
+.count-badge {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--navy);
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 4px 12px;
+  margin-top: 16px;
+}
+
+/* ══════════════════════════════
+   DREAM OUTCOME
+══════════════════════════════ */
+.outcome { text-align: center; }
+
+.outcome h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 7vw, 56px);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--cream);
+  line-height: 1.3;
+  margin: 24px 0 48px;
+}
+
+.outcome h2 strong {
+  font-weight: 600;
+  font-style: normal;
+  color: var(--gold);
+}
+
+.outcome-list {
+  list-style: none;
+  text-align: left;
+  max-width: 480px;
+  margin: 0 auto 48px;
+}
+
+.outcome-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  font-size: 15px;
+  color: var(--cream2);
+  line-height: 1.6;
+}
+
+.outcome-list li:last-child { border-bottom: none; }
+
+.outcome-list li::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 8px;
+}
+
+/* ══════════════════════════════
+   BONUS
+══════════════════════════════ */
+.bonus { background: var(--navy2); }
+
+.bonus-card {
+  border: 1px solid var(--gold);
+  padding: 40px;
+  position: relative;
+}
+
+.bonus-stamp {
+  position: absolute;
+  top: -18px;
+  left: 36px;
+  background: var(--gold);
+  color: var(--navy);
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 6px 16px;
+}
+
+.bonus-card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--cream);
+  margin: 16px 0 12px;
+}
+
+.bonus-card p {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+/* ══════════════════════════════
+   URGENCY
+══════════════════════════════ */
+.urgency {
+  background: var(--navy3);
+  text-align: center;
+  padding: 60px 24px;
+}
+
+.urgency h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(28px, 6vw, 48px);
+  font-weight: 600;
+  color: var(--cream);
+  line-height: 1.3;
+  margin: 16px 0 12px;
+}
+
+.urgency p {
+  font-size: 15px;
+  color: var(--muted);
+  max-width: 440px;
+  margin: 0 auto 32px;
+  line-height: 1.8;
+}
+
+/* ══════════════════════════════
+   CTA SECTION
+══════════════════════════════ */
+.cta-section {
+  text-align: center;
+  padding: 100px 24px;
+}
+
+.price-display {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(56px, 12vw, 96px);
+  font-weight: 600;
+  color: var(--gold);
+  line-height: 1;
+  margin: 24px 0 8px;
+}
+
+.price-note {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+
+.cta-section h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 7vw, 56px);
+  font-weight: 600;
+  color: var(--cream);
+  line-height: 1.2;
+  margin: 16px 0 20px;
+}
+
+.guarantee {
+  margin-top: 32px;
+  font-size: 13px;
+  color: var(--muted);
+  font-style: italic;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+}
+
+/* ══════════════════════════════
+   FOOTER
+══════════════════════════════ */
+footer {
+  background: var(--navy2);
+  text-align: center;
+  padding: 40px 24px;
+  border-top: 1px solid rgba(201,168,76,0.15);
+}
+
+footer p {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+footer a {
+  color: var(--gold);
+  text-decoration: none;
+}
+
+/* ══════════════════════════════
+   CORNER BRACKETS utility
+══════════════════════════════ */
+.bracketed {
+  position: relative;
+  padding: 32px;
+}
+
+.bracketed::before,
+.bracketed::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-color: var(--gold);
+  border-style: solid;
+  opacity: 0.5;
+}
+
+.bracketed::before { top: 0; left: 0; border-width: 1px 0 0 1px; }
+.bracketed::after  { bottom: 0; right: 0; border-width: 0 1px 1px 0; }
+
+/* ══════════════════════════════
+   RESPONSIVE
+══════════════════════════════ */
+@media (max-width: 480px) {
+  section { padding: 60px 0; }
+  .section-card { padding: 24px; }
+  .bonus-card { padding: 28px 24px; }
+  .btn-primary, .btn-secondary { padding: 18px 32px; font-size: 12px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="hero-inner">
+    <span class="hero-tag">The Kit Creative — Digital Resource</span>
+
+    <h1 class="display">
+      The<br><em>Hook</em><br>Kit
+    </h1>
+
+    <p class="hero-sub">
+      40 opening lines that stop the scroll,<br>build your audience, and get you paid.
+    </p>
+
+    <p class="hero-desc">
+      For creators and businesses who are done being scrolled past.
+      The first sentence is the whole game.
+      These are yours.
+    </p>
+
+    <a href="https://selar.com/1p64gk7870" class="btn-primary">Get The Hook Kit Now</a>
+    <p class="hero-price">Instant download · PDF · Available worldwide</p>
+  </div>
+</section>
+
+
+<!-- ══ PROBLEM ══ -->
+<section class="problem">
+  <div class="container">
+    <p class="eyebrow">The real problem</p>
+
+    <div class="problem-quote">
+      Most people lose their audience <strong>before they even finish their first sentence.</strong>
+      Not because their content is bad. Not because their product is wrong.
+      Because the first line did nothing.
+    </div>
+
+    <p>It did not stop anyone. It did not spark curiosity. It did not make anyone feel seen. By the time the actual value showed up, the person had already scrolled past.</p>
+
+    <p>You have been pouring time into content that people are not even reading past the first line. That is not a content problem. That is a first line problem.</p>
+
+    <p style="color: var(--gold2); font-style: italic; font-family: 'Cormorant Garamond', serif; font-size: 20px; margin-top: 24px;">The hook is not a detail. It is the whole game.</p>
+  </div>
+</section>
+
+
+<!-- ══ SOLUTION ══ -->
+<section class="solution">
+  <div class="container">
+    <p class="eyebrow">The solution</p>
+    <div class="gold-rule" style="margin-bottom: 24px;"></div>
+
+    <h2 class="display">
+      Meet<br><em>The Hook Kit.</em>
+    </h2>
+
+    <p style="margin-top: 24px;">
+      40 opening lines that do the hardest part for you. The first sentence. The one that decides whether someone keeps reading or keeps scrolling. Whether they follow or forget you. Whether they buy or move on.
+    </p>
+
+    <p style="margin-top: 16px; color: var(--gold2); font-family: 'Cormorant Garamond', serif; font-size: 20px; font-style: italic;">
+      Pick one. Make it yours. Post it.
+    </p>
+  </div>
+</section>
+
+
+<!-- ══ WHAT'S INSIDE ══ -->
+<section class="inside">
+  <div class="container">
+    <p class="eyebrow">What is inside</p>
+    <h2 class="display">Two sections.<br>40 hooks.<br>Zero guesswork.</h2>
+
+    <!-- Section 1 -->
+    <div class="section-card" data-ghost="01">
+      <p class="card-tag">Section 01 of 02 · 20 hooks</p>
+      <h3>Hooks That Build</h3>
+      <p>Stop the scroll, get the follow, build the trust. These opening lines are designed to make strangers stop, stay, and come back for more.</p>
+
+      <div class="hook-preview">"Nobody talks about what actually happens after you go viral."</div>
+      <div class="hook-preview">"You do not have a content problem. You have a first line problem."</div>
+      <div class="hook-preview">"The creator with 800 followers made more than the one with 80,000. I looked into it."</div>
+      <div class="hook-preview">"Nobody is ignoring you. They just cannot tell in the first two seconds why they should stop."</div>
+
+      <span class="count-badge">+ 16 more hooks inside</span>
+    </div>
+
+    <!-- Section 2 -->
+    <div class="section-card" data-ghost="02">
+      <p class="card-tag">Section 02 of 02 · 20 hooks</p>
+      <h3>Hooks That Pay</h3>
+      <p>Convert the viewer, book the client, make the sale. These opening lines move people from curious to clicking to buying.</p>
+
+      <div class="hook-preview">"You have been settling for less because you did not know this existed."</div>
+      <div class="hook-preview">"This is not for everyone. It is for the person who is done settling."</div>
+      <div class="hook-preview">"You already know you need this. You have known for a while."</div>
+      <div class="hook-preview">"Before you spend another coin on something that does not deliver, read this."</div>
+
+      <span class="count-badge">+ 16 more hooks inside</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ DREAM OUTCOME ══ -->
+<section class="outcome">
+  <div class="container">
+    <p class="eyebrow">What changes</p>
+    <div class="gold-rule" style="margin-bottom: 24px;"></div>
+
+    <h2 class="display">
+      Imagine opening your notes app<br>
+      and already knowing<br>
+      <strong>exactly how to start.</strong>
+    </h2>
+
+    <ul class="outcome-list">
+      <li>No more staring at a blank screen before every post</li>
+      <li>No more publishing something that sounds like everyone else</li>
+      <li>No more second guessing your first line and deleting everything</li>
+      <li>Just open the kit, pick a line, make it yours, and post</li>
+      <li>Content that actually stops people mid scroll from day one</li>
+      <li>The confidence of knowing your first sentence is already doing its job</li>
+    </ul>
+
+    <a href="https://selar.com/1p64gk7870" class="btn-primary">I Want This</a>
+  </div>
+</section>
+
+
+<!-- ══ BONUS ══ -->
+<section class="bonus">
+  <div class="container">
+    <p class="eyebrow">Included free</p>
+    <br>
+    <div class="bonus-card bracketed">
+      <span class="bonus-stamp">Bonus</span>
+      <h3 class="display">More kits are coming.<br>You are first in line.</h3>
+      <p style="margin-top: 16px;">
+        Every buyer of the Hook Kit gets early access and first notification when new kits drop. The Caption Kit. Future content tools. All of it. You are not just buying 40 hooks. You are joining the system being built around helping creators and sellers show up with words that actually work.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ URGENCY ══ -->
+<section class="urgency">
+  <div class="container">
+    <p class="eyebrow">Do not wait</p>
+    <h2 class="display">
+      Every post you publish<br>without a strong first line<br>is working against you.
+    </h2>
+    <p>
+      You are already creating content. You are already putting in the time. The Hook Kit just makes sure that time is not wasted on a first line that loses people before they even see what you built.
+    </p>
+    <a href="https://selar.com/1p64gk7870" class="btn-secondary">Get Instant Access</a>
+  </div>
+</section>
+
+
+<!-- ══ FINAL CTA ══ -->
+<section class="cta-section">
+  <div class="container">
+    <p class="eyebrow">Get the kit</p>
+    <div class="gold-rule" style="margin-bottom: 32px;"></div>
+
+    <h2 class="display">The Hook Kit</h2>
+
+    <div class="price-display">$11</div>
+    <p class="price-note">One time payment · Instant download · PDF</p>
+
+    <a href="https://selar.com/1p64gk7870" class="btn-primary">Get The Hook Kit — $11</a>
+
+    <p class="guarantee">
+      Instant access. Download it. Use it today.<br>
+      No waiting, no shipping, no complicated setup.
+    </p>
+
+    <div style="margin-top: 48px; padding-top: 48px; border-top: 1px solid rgba(201,168,76,0.15);">
+      <p style="font-family: 'Cormorant Garamond', serif; font-size: 20px; font-style: italic; color: var(--muted); line-height: 1.8;">
+        "The right first line has always been the difference<br>between being seen and being scrolled past."
+      </p>
+      <p style="font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 2px; color: var(--gold); margin-top: 12px; text-transform: uppercase;">The Kit Creative</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <p>
+    <a href="https://selar.com/1p64gk7870">thekitcreative.co</a>
+    &nbsp;·&nbsp;
+    Digital products for creators and online sellers
+  </p>
+</footer>
+
+</body>
+</html>
